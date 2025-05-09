@@ -1,0 +1,5 @@
+.idea/
+*.iml
+target/
+test-server-basic-auth/*.log
+test-server-basic-auth/node_modules

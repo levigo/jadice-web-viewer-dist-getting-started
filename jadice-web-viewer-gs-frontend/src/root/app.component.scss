@@ -1,0 +1,35 @@
+@use "../styles/mixins";
+
+:host {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    background-color: grey;
+}
+
+.hidden {
+    display: none;
+}
+
+.overlay-container-toolbar {
+    position: fixed; /* Ensure the overlay is fixed above the toolbar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    z-index: 10; /* Make sure the overlay appears above the toolbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--jadice-info-bar-info-background);
+}
+
+
+.main-row {
+    @include mixins.demo-flex-row;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+

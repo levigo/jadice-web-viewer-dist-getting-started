@@ -1,0 +1,36 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+  servlet:
+    context-path: "/webtoolkit"
+
+
+management:
+  server:
+    address: 0.0.0.0
+    port: 8000
+    addApplicationContextHeader: false
+  endpoints:
+    web.exposure.include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+webtoolkit:
+  clientConfiguration:
+    maxUploadFileSize: 50000000
+  annotationProfiles: /filenet-p8_profile.xml
+  defaultAnnotationProfile: FileNet P8
+
+logging:
+  level:
+    root: WARN
+  pattern:
+    console: "%d %-5level [clientId:%X{jwt.clientId}] [docId:%X{jwt.docIdentifier}]  %logger: %msg%n"
+    file: "%d %-5level [clientId:%X{clientId}] [docId:%X{jwt.docIdentifier}] %logger: %msg%n"

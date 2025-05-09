@@ -1,0 +1,117 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "jadice-web-viewer-gs-frontend": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:application": {
+                    "strict": true
+                }
+            },
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular/build:application",
+                    "options": {
+                        "outputPath": {
+                          "base": "dist/jadice-web-viewer-gs-frontend"
+                        },
+                        "index": "src/index.html",
+                        "polyfills": [
+                          "src/polyfills.ts"
+                        ],
+                        "tsConfig": "tsconfig.app.json",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "./node_modules/@levigo/ngx-webtoolkit/assets",
+                                "output": "/assets/ngx-webtoolkit/"
+                            },
+                            {
+                                "glob": "**/*!(.scss)",
+                                "input": "./node_modules/@levigo/webtoolkit-ng-client/assets",
+                                "output": "/assets/webtoolkit-client/"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "./node_modules/@levigo/webtoolkit-ng-client/include",
+                                "output": "/precursor/"
+                            },
+                            {
+                                "glob": "**/*!(.scss)",
+                                "input": "./node_modules/@levigo/jadice-common-components/assets",
+                                "output": "/assets/jadice-common-components/"
+                            }
+                        ],
+                        "styles": [
+                            "src/styles.scss",
+                            "./node_modules/@levigo/jadice-web-icons/assets/icon-font.scss",
+                            "./node_modules/@levigo/webtoolkit-ng-client/assets/adaptive-theme.scss"
+                        ],
+                        "scripts": [],
+                        "browser": "src/main.ts",
+                        "stylePreprocessorOptions": {
+                          "includePaths": [
+                            "."
+                          ]
+                        }
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "1.2mb",
+                                    "maximumError": "2mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                          "optimization": false,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular/build:dev-server",
+                    "options": {
+                        "proxyConfig": "proxy.conf.json"
+                    },
+                    "configurations": {
+                        "production": {
+                          "buildTarget": "jadice-web-viewer-gs-frontend:build:production"
+                        },
+                        "development": {
+                          "buildTarget": "jadice-web-viewer-gs-frontend:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                }
+            }
+        }
+    },
+    "cli": {
+      "analytics": false
+    }
+}

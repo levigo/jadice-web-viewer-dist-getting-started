@@ -1,0 +1,54 @@
+{
+    "documents": {
+        "ua": {
+            "title": "Esempio PDF/UA",
+            "description": "Esempio di un documento accessibile altamente compatibile con la nostra modalità di lettura semplice."
+        },
+        "factsheet": {
+            "title": "Scheda informativa jadice web toolkit",
+            "description": "Esempio di un documento PDF complesso. Prova a utilizzare funzioni testuali come selezione, copia e ricerca."
+        },
+        "passwordProtected": {
+            "title": "PDF crittografato",
+            "description": "Questo documento è un esempio di PDF crittografati. La password per questo documento è \"levigo\"."
+        },
+        "verwandlung": {
+            "title": "La metamorfosi",
+            "description": "Documento importato tramite URL."
+        },
+        "romeo": {
+            "title": "Romeo e Giulietta",
+            "description": "Documento importato tramite URL."
+        },
+        "baxterbay": {
+            "title": "Baxter Bay Bank",
+            "description": "Esempio di un file MO:DCA (AFP)."
+        },
+        "xrechnung": {
+            "title": "XRechnung",
+            "description": "Esempio di un file XML XRechnung."
+        },
+        "xrechnung_combined": {
+            "title": "XRechnung con copertina PDF",
+            "description": "Esempio di file XRechnung con una copertina PDF. Qui è possibile utilizzare la funzione di visualizzazione comparativa."
+        }
+    },
+    "templateCategories": {
+        "demoDocuments": "Documenti demo",
+        "digiBib": "Esempi DigiBib.org",
+        "miscFormats": "Esempi di formati specifici"
+    },
+    "actions": {
+        "openFile": "Apri nuovo documento",
+        "accessibleMode": "Modalità di lettura semplice",
+        "toggleThumbnails": "Attiva/disattiva miniature",
+        "compareView": {
+            "open": "Apri visualizzazione comparativa"
+        }
+    },
+    "ngxWebtoolkit": {
+        "compareView": {
+            "infoText": "Chiudi visualizzazione comparativa"
+        }
+    }
+}
